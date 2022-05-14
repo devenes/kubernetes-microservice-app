@@ -35,7 +35,7 @@ jobs:
       #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
 
       - name: Build and push
-        working-directory: /web_server
+        working-directory: web_server
         run: |
           docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0 .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
