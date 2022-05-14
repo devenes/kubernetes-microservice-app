@@ -27,15 +27,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Build and push
-        uses: docker/build-push-action@v2
-        with:
-          push: true
-          file: ./web_server/Dockerfile
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
-
       # - name: Build and push
-      #   working-directory: web_server
-      #   run: |
-      #     docker buildx build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0 .
-      #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
+      #   uses: docker/build-push-action@v2
+      #   with:
+      #     push: true
+      #     file: ./web_server/Dockerfile
+      #     tags: ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
+
+      - name: Build and push
+        run: |
+          cd web_server
+          docker build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0 .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
