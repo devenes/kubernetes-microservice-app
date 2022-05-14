@@ -28,8 +28,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: Build and push
-        uses: docker/build-push-action@v2
-        working-directory: ./result_server
-        with:
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0
+        run: |
+          git clone https://github.com/devenes/kubernetes-microservice-app.git
+          cd kubernetes-microservice-app/result_server
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0 .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0
