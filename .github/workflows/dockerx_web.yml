@@ -31,7 +31,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          working-directory: ./web_server
+          file: ./web_server/Dockerfile
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
 
       # - name: Build and push
