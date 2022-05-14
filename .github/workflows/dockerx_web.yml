@@ -29,7 +29,7 @@ jobs:
 
       - name: Build and push
         run: |
-          git clone https://github.com/devenes/kubernetes-microservice-app.git
+          git clone -b release --single-branch https://github.com/devenes/kubernetes-microservice-app.git
           cd kubernetes-microservice-app/web_server
           docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0 .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
