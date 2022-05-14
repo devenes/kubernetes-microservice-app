@@ -1,3 +1,5 @@
+[![Docker Deployment for Web Server](https://github.com/devenes/kubernetes-microservice-app/actions/workflows/dockerx_web.yml/badge.svg)](https://github.com/devenes/kubernetes-microservice-app/actions/workflows/dockerx_web.yml) [![Docker Deployment for Result Server](https://github.com/devenes/kubernetes-microservice-app/actions/workflows/dockerx_result.yml/badge.svg)](https://github.com/devenes/kubernetes-microservice-app/actions/workflows/dockerx_result.yml)
+
 # Microservice Architecture for Python Flask Phonebook Web Application with MySQL using Kubernetes.
 
 ## Description
