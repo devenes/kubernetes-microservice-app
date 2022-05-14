@@ -11,6 +11,10 @@ on:
     branches:
       - "release"
 
+defaults:
+  run:
+    working-directory: /web_server
+
 jobs:
   dockerx:
     runs-on: ubuntu-latest
@@ -36,6 +40,5 @@ jobs:
 
       - name: Build and push
         run: |
-          cd ./web_server
           docker build --platform linux/amd64,linux/arm64,linux/arm/v7 -t ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0 .
           docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_web_server:${{github.run_number}}.0
