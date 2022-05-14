@@ -6,7 +6,7 @@ Phonebook Microservice Web Application aims to create a web application with MyS
 
 ## Project Architecture
 
-![Project](Microservice_structure.jpg)
+![Project](./readme/microservice_structure.jpg)
 
 ## Case Study Details
 
@@ -103,7 +103,10 @@ Phonebook Microservice Web Application aims to create a web application with MyS
 
 - The Application files should be downloaded from Github repo and deployed on EC2 Instance using user data script within CloudFormation Template.
 
-## Expected Outcome
+## DockerHub Repository
+
+![DockerHub](./readme/docker_hub1.jpg)
+![DockerHub](./readme/docker_hub2.jpg)
 
 ### At the end of the project, following topics are to be covered;
 
