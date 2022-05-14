@@ -1,7 +1,8 @@
 name: Docker Deployment for Web Server
 
-workflow_dispatch:
 on:
+  workflow_dispatch:
+
   push:
     branches:
       - "release"
