@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
     name: database-configmap
 data:
-    MYSQL_USER: clarus
+    MYSQL_USER: devenes
     MYSQL_DATABASE: phonebook
