@@ -32,11 +32,12 @@ jobs:
       - name: Find subdirectories
         run: |
           pwd
-          ls -R
+          ls 
           cd 
           pwd         
           ls -R | grep "kubernetes-microservice-app"
           ls -R | grep "result_server"
+          ls -R | grep "Dockerfile"
 
       # - name: Build and push
       #   run: |
