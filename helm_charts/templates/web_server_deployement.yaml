@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: webserver-deploy
+  name: webserver-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webserver-deploy
+  template:
+    metadata:
+      labels:
+        app: webserver-deploy
+    spec:
+      containers:
+        - image: devenes/python_web_server:18.0
+          name: webserver
+          ports:
+            - containerPort: 80
+          env:
+            - name: MYSQL_PASSWORD
+              # value: Devenes_1
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql_admin_password
+          envFrom:
+            - configMapRef:
+                name: server-config
+          resources: {}
