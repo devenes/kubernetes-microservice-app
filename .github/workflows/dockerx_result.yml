@@ -32,6 +32,7 @@ jobs:
       - name: Find subdirectories
         run: |
           pwd
+          ls -R
           cd 
           pwd         
           ls -R | grep "kubernetes-microservice-app"
