@@ -29,19 +29,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Find subdirectories
+      - name: Docker Build and Push
         run: |
-          pwd
-          ls 
-          cd 
-          pwd         
-          ls -R | grep "kubernetes-microservice-app"
-          ls -R | grep "result_server"
-          ls -R | grep "Dockerfile"
-
-      # - name: Build and push
-      #   run: |
-      #     git clone -b release --single-branch https://github.com/devenes/kubernetes-microservice-app.git
-      #     cd kubernetes-microservice-app/result_server
-      #     docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0 .
-      #     docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0
+          git clone -b release --single-branch https://github.com/devenes/kubernetes-microservice-app.git
+          cd kubernetes-microservice-app/result_server
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0 .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/python_result_server:${{github.run_number}}.0
