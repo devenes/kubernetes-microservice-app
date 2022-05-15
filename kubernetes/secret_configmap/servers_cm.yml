@@ -4,5 +4,5 @@ metadata:
     name: servers-configmap
 data:
     MYSQL_DATABASE_HOST: mysql-service.default.svc.cluster.local
-    MYSQL_USER: clarus
+    MYSQL_USER: devenes
     MYSQL_DATABASE: phonebook
