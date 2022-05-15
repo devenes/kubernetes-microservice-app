@@ -29,10 +29,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: Find path
-        run: |
-          cd /home/runner/work/kubernetes-microservice-app/result_server
-
       - name: Find subdirectories
         run: |
           cd
