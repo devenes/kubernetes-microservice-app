@@ -31,11 +31,11 @@ jobs:
 
       - name: Find subdirectories
         run: |
-          cd
-          ls -R
+          pwd
+          cd 
+          pwd         
           ls -R | grep "kubernetes-microservice-app"
           ls -R | grep "result_server"
-          pwd
 
       # - name: Build and push
       #   run: |
