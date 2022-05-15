@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: resultserver-deploy
+  name: resultserver-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resultserver-deploy
+  template:
+    metadata:
+      labels:
+        app: resultserver-deploy
+    spec:
+      containers:
+        - image: devenes/python_result_server:18.0
+          name: resultserver
+          ports:
+            - containerPort: 80
+          env:
+            - name: MYSQL_PASSWORD
+              # value: Devenes_1
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: mysql_admin_password
+          envFrom:
+            - configMapRef:
+                name: server-config
+          # - name: MYSQL_USER
+          #   value: devenes
+          # - name: MYSQL_DATABASE
+          #   value: phonebook
+          # - name: MYSQL_DATABASE_HOST
+          #   value: mysql-service
+          resources: {}
